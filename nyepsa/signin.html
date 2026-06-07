@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lab Login</title>
+    <style>
+        /* [Keep all the previous CSS exactly the same - I'm only showing the JavaScript change] */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+        }
+
+        .molecules, .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .molecule {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0,255,200,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .molecule:nth-child(1) { width: 20px; height: 20px; left: 10%; animation-delay: 0s; }
+        .molecule:nth-child(2) { width: 15px; height: 15px; left: 20%; animation-delay: -5s; }
+        .molecule:nth-child(3) { width: 25px; height: 25px; left: 80%; animation-delay: -10s; }
+        .molecule:nth-child(4) { width: 18px; height: 18px; left: 90%; animation-delay: -15s; }
+        .molecule:nth-child(5) { width: 12px; height: 12px; left: 30%; animation-delay: -2s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .robot-container {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 400px;
+            z-index: 2;
+            animation: robotFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes robotFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .robot {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .robot-head {
+            width: 120px;
+            height: 100px;
+            background: linear-gradient(145deg, #4a90e2, #357abd);
+            border-radius: 60px 60px 40px 40px;
+            position: absolute;
+            top: 20px;
+            left: 90px;
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3), inset 0 5px 10px rgba(255,255,255,0.2);
+            animation: headBob 3s ease-in-out infinite;
+        }
+
+        @keyframes headBob {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-5px) rotate(2deg); }
+        }
+
+        .robot-eyes {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            width: 80px;
+            height: 30px;
+        }
+
+        .eye {
+            width: 25px;
+            height: 25px;
+            background: #00ffcc;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 20px #00ffcc;
+            animation: blink 4s infinite;
+        }
+
+        .eye.left { left: 0; }
+        .eye.right { right: 0; }
+
+        @keyframes blink {
+            0%, 90%, 100% { height: 25px; }
+            95% { height: 3px; }
+        }
+
+        .robot-body {
+            width: 180px;
+            height: 150px;
+            background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            position: absolute;
+            top: 110px;
+            left: 60px;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4), inset 0 5px 10px rgba(255,255,255,0.1);
+        }
+
+        .robot-arms {
+            position: absolute;
+            top: 130px;
+            left: 60px;
+            width: 180px;
+            height: 60px;
+        }
+
+        .arm {
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+            border-radius: 10px;
+            position: absolute;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .arm.left { left: 10px; transform: rotate(-20deg); animation: armMove 2s ease-in-out infinite; }
+        .arm.right { right: 10px; transform: rotate(20deg); animation: armMove 2s ease-in-out infinite reverse; }
+
+        @keyframes armMove {
+            0%, 100% { transform: rotate(-20deg) translateY(0px); }
+            50% { transform: rotate(-20deg) translateY(-10px); }
+        }
+
+        .robot-hands {
+            position: absolute;
+            top: 160px;
+            left: 50px;
+            width: 200px;
+        }
+
+        .hand {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(145deg, #feca57, #ff9ff3);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 5px 15px rgba(254, 202, 87, 0.4);
+            animation: handGlow 3s ease-in-out infinite;
+        }
+
+        .hand.left { left: 20px; }
+        .hand.right { right: 20px; }
+
+        @keyframes handGlow {
+            0%, 100% { box-shadow: 0 5px 15px rgba(254, 202, 87, 0.4); }
+            50% { box-shadow: 0 5px 25px rgba(254, 202, 87, 0.8), 0 0 30px rgba(255, 255, 255, 0.5); }
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+            width: 400px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            z-index: 10;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .login-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5em;
+            color: #00ffcc;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #00ffcc;
+            letter-spacing: 3px;
+        }
+
+        .login-subtitle {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #00ffcc;
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(145deg, #00ffcc, #00d4aa);
+            border: none;
+            border-radius: 12px;
+            color: #0c0c0c;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 255, 200, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0, 255, 200, 0.5);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffcc;
+            border-radius: 50%;
+            animation: particleFloat 15s infinite linear;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .robot-container { display: none; }
+            .login-container { width: 90%; padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="molecules">
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+    </div>
+
+    <div class="robot-container">
+        <div class="robot">
+            <div class="robot-head">
+                <div class="robot-eyes">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                </div>
+            </div>
+            <div class="robot-body"></div>
+            <div class="robot-arms">
+                <div class="arm left"></div>
+                <div class="arm right"></div>
+            </div>
+            <div class="robot-hands">
+                <div class="hand left"></div>
+                <div class="hand right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <h1 class="login-title">PHARMA</h1>
+        <p class="login-subtitle">NYERI ASSOCIATION</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="Admission" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" class="input-field" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">REGISTER</button>
+        </form>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <script>
+        // Enhanced login with redirect
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.querySelector('.login-btn');
+            const username = document.querySelector('input[type="text"]').value;
+            
+            // Button animation
+            btn.style.transform = 'scale(0.95)';
+            btn.innerHTML = '<span>Access Granted! 🚀</span>';
+            btn.style.background = 'linear-gradient(145deg, #00ff88, #00cc66)';
+            
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            ripple.className = 'btn-ripple';
+            ripple.style.left = '50%';
+            ripple.style.top = '50%';
+            btn.appendChild(ripple);
+            
+            // Success animation + redirect
+            setTimeout(() => {
+                // Store username in localStorage for home page
+                localStorage.setItem('username', username || 'Engineer');
+                
+                // Smooth redirect to index.html
+                window.location.href = 'index.html';
+            }, 800);
+        });
+
+        // Ripple effect function
+        document.querySelector('.login-btn').addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.className = 'btn-ripple';
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Particle system
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            document.getElementById('particles').appendChild(particle);
+            setTimeout(() => particle.remove(), 15000);
+        }
+
+        setInterval(createParticle, 300);
+
+        // Mouse tracking for robot eyes
+        document.addEventListener('mousemove', (e) => {
+            const eyes = document.querySelectorAll('.eye');
+            const rect = document.querySelector('.robot-head').getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            eyes.forEach(eye => {
+                eye.style.transform = `translate(${x * 10 - 5}px, ${y * 10 - 5}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

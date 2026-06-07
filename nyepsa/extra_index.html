@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Molecular Lab - Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Effects */
+        .molecules {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .molecule {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0,255,200,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            box-shadow: 0 0 20px rgba(0,255,200,0.5);
+        }
+
+        .molecule:nth-child(1) { width: 25px; height: 25px; left: 10%; animation-delay: 0s; }
+        .molecule:nth-child(2) { width: 18px; height: 18px; left: 25%; animation-delay: -3s; }
+        .molecule:nth-child(3) { width: 30px; height: 30px; left: 70%; animation-delay: -7s; }
+        .molecule:nth-child(4) { width: 22px; height: 22px; left: 85%; animation-delay: -10s; }
+        .molecule:nth-child(5) { width: 15px; height: 15px; left: 40%; animation-delay: -5s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* Welcome Animation */
+        .welcome {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+            animation: welcomeSlide 1.5s ease-out;
+        }
+
+        @keyframes welcomeSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .welcome-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4em;
+            background: linear-gradient(45deg, #00ffcc, #667eea, #ff6b6b, #feca57);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite, float 6s ease-in-out infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0,255,200,0.5);
+            letter-spacing: 5px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .welcome-user {
+            font-size: 1.8em;
+            color: #ffffff;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeIn 2s ease-out 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 0.9; transform: translateY(0); }
+        }
+
+        /* Dashboard Cards */
+        .dashboard {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            z-index: 10;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0,255,200,0.3);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', monospace;
+            color: #00ffcc;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0,255,200,0.5);
+        }
+
+        .card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        /* Robot on Home */
+        .robot-home {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 250px;
+            height: 300px;
+            z-index: 5;
+            animation: celebrate 2s ease-in-out infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.05); }
+            75% { transform: rotate(-2deg) scale(1.02); }
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            color: #ff6b6b;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 20;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 107, 107, 0.3);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .welcome-title { font-size: 2.5em; }
+            .welcome-user { font-size: 1.3em; }
+            .robot-home { display: none; }
+            .dashboard { top: 70%; grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Molecules -->
+    <div class="molecules">
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+        <div class="molecule"></div>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="logout-btn" onclick="logout()">← Logout</button>
+
+    <!-- Welcome Section -->
+    <div class="welcome">
+        <h1 class="welcome-title" id="welcomeTitle">AI LAB</h1>
+        <p class="welcome-user" id="welcomeUser">Welcome back, <span id="username"></span>!</p>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+        <div class="card">
+            <span class="card-icon">🔬</span>
+            <h3>Molecular Simulator</h3>
+            <p>Design and simulate complex molecular structures in real-time</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">⚡</span>
+            <h3>Quantum Processor</h3>
+            <p>Leverage quantum computing for molecular optimization</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">📊</span>
+            <h3>Data Analytics</h3>
+            <p>Analyze experiment results with AI-powered insights</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🤖</span>
+            <h3>AI Assistant</h3>
+            <p>Get real-time help from your molecular engineering assistant</p>
+        </div>
+    </div>
+
+    <!-- Celebrating Robot -->
+    <div class="robot-home">
+        <!-- Same robot SVG/CSS from login page -->
+        <div class="robot">
+            <div class="robot-head">
+                <div class="robot-eyes">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                </div>
+            </div>
+            <div class="robot-body"></div>
+            <div class="robot-arms">
+                <div class="arm left"></div>
+                <div class="arm right"></div>
+            </div>
+            <div class="robot-hands">
+                <div class="hand left"></div>
+                <div class="hand right"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load username from localStorage
+        window.addEventListener('load', () => {
+            const username = localStorage.getItem('username') || 'Engineer';
+            document.getElementById('username').textContent = username;
+            document.getElementById('welcomeTitle').style.animationDelay = '0.3s';
+        });
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('username');
+            window.location.href = 'login.html';
+        }
+
+        // Smooth scroll prevention
+        window.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+    </script>
+</body>
+</html>

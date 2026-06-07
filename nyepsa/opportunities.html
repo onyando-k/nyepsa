@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities - Nyeri Pharmacy Association – KMTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png">
+</head>
+<body>
+    <!-- 🔍 Search & Notifications -->
+    <div class="search-notif">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search internships, jobs, scholarships...">
+        </div>
+        <div class="notification-bell" onclick="toggleNotifications()">
+            <i class="fas fa-bell"></i>
+            <span class="badge">4</span>
+        </div>
+        <div class="dark-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- 📱 WhatsApp Button -->
+    <a href="https://wa.me/254712345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- 🏠 Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./photos/nat.jpg" alt="NPA-KMTC">
+                <span>Nyeri Pharmacy Association</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="#opportunities" class="nav-link active">Opportunities</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎖️ Hero Section -->
+    <section class="hero hero-opportunities">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Career <span class="gradient-text">Opportunities</span><br>
+                Portal
+            </h1>
+            <p class="hero-subtitle">
+                Internships, jobs, scholarships, and volunteer positions for pharmacy students
+            </p>
+            <div class="hero-buttons">
+                <a href="#internships" class="btn-primary btn-large">Latest Internships</a>
+                <a href="#scholarships" class="btn-secondary btn-large">Scholarships</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./photos/patron.jpg" alt="Career Success">
+            <div class="opportunity-stats">
+                <div class="stat">
+                    <span class="stat-number">250+</span>
+                    <span>Placements</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span>Success Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🩺 Internships -->
+    <section id="internships" class="opportunities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Internship Opportunities</h2>
+                <p class="section-subtitle">Hospital attachments and clinical placements</p>
+            </div>
+            
+            <div class="filter-bar">
+                <select id="internship-filter">
+                    <option value="all">All Hospitals</option>
+                    <option value="nairobi">Nairobi</option>
+                    <option value="nyeri">Nyeri</option>
+                    <option value="nakuru">Nakuru</option>
+                    <option value="kisumu">Kisumu</option>
+                </select>
+                <div class="sort-options">
+                    <button class="sort-btn active" data-sort="deadline">Sort by Deadline</button>
+                    <button class="sort-btn" data-sort="location">Sort by Location</button>
+                </div>
+            </div>
+            
+            <div class="opportunities-grid">
+                <!-- Nyeri County Hospital -->
+                <div class="opportunity-card internship-card" data-location="nyeri" data-deadline="2024-11-20">
+                    <div class="card-header">
+                        <div class="opportunity-type">
+                            <i class="fas fa-hospital"></i>
+                            <span>Internship</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-save" onclick="saveOpportunity(this)"><i class="far fa-bookmark"></i></button>
+                            <button class="btn-share"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                    <div class="opportunity-logo">
+                        <img src="./photos/nice.jpg" alt="Nyeri Hospital">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Nyeri County Referral Hospital</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Nyeri Town
+                        </div>
+                        <p>6-month paid internship in hospital pharmacy. Dispensing, ward rounds, drug info.</p>
+                        <ul class="opportunity-features">
+                            <li><i class="fas fa-check"></i> KSh 25,000 stipend</li>
+                            <li><i class="fas fa-check"></i> 10 positions</li>
+                            <li><i class="fas fa-check"></i> Starts Jan 2025</li>
+                        </ul>
+                        <div class="opportunity-footer">
+                            <span class="deadline">Closes 20 Nov</span>
+                            <div class="action-buttons">
+                                <a href="#" class="btn-primary" onclick="applyNow('nyeri-hospital')">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KNH Internship -->
+                <div class="opportunity-card internship-card featured" data-location="nairobi" data-deadline="2024-11-15">
+                    <div class="card-header">
+                        <div class="opportunity-type premium">
+                            <i class="fas fa-star"></i>
+                            <span>Premium Internship</span>
+                        </div>
+                    </div>
+                    <div class="opportunity-logo">
+                        <img src="./photos/pharma photo.jpg" alt="KNH">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Kenyatta National Hospital (KNH)</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Nairobi
+                        </div>
+                        <p>Prestigious 12-month program. Oncology, ICU, emergency pharmacy experience.</p>
+                        <ul class="opportunity-features">
+                            <li><i class="fas fa-check"></i> KSh 35,000 stipend</li>
+                            <li><i class="fas fa-check"></i> 5 positions only</li>
+                            <li><i class="fas fa-check"></i> Interview required</li>
+                        </ul>
+                        <div class="opportunity-footer urgent">
+                            <span class="deadline">Closes 15 Nov</span>
+                            <a href="#" class="btn-primary" onclick="applyNow('knh')">Apply Fast!</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More internships... -->
+                <div class="opportunity-card internship-card" data-location="nakuru" data-deadline="2024-11-25">
+                    <div class="opportunity-logo">
+                        <img src="./photos/pharma photo.jpg" alt="Nakuru PGH">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Nakuru PGH Pharmacy Intern</h3>
+                        <div class="location">Nakuru</div>
+                        <p>8-month attachment. Community pharmacy + HIV clinic experience.</p>
+                        <div class="opportunity-footer">
+                            <span class="deadline">Closes 25 Nov</span>
+                            <a href="#" class="btn-primary">Apply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎓 Scholarships -->
+    <section id="scholarships" class="scholarships-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Scholarships & Funding</h2>
+            </div>
+            
+            <div class="scholarships-grid">
+                <div class="scholarship-card">
+                    <div class="scholarship-header">
+                        <h3>KEMSA Pharmacy Scholarship</h3>
+                        <span class="amount">KSh 150,000</span>
+                    </div>
+                    <p>Full tuition for degree advancement for diploma students. GPA 3.5+ required.</p>
+                    <div class="scholarship-footer">
+                        <span>Closes: 10 Dec</span>
+                        <a href="#" class="btn-primary">Apply</a>
+                    </div>
+                </div>
+                
+                <div class="scholarship-card">
+                    <div class="scholarship-header">
+                        <h3>PharmaAid Bursary</h3>
+                        <span class="amount">KSh 80,000</span>
+                    </div>
+                    <p>Need-based funding for Sem 2+ students from low-income families.</p>
+                    <div class="scholarship-footer">
+                        <span>Closes: 5 Dec</span>
+                        <a href="#" class="btn-primary">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💰 Jobs & Volunteers -->
+    <section class="jobs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Jobs & Volunteers</h2>
+            </div>
+            
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3>Community Pharmacy Assistant</h3>
+                    <div class="job-meta">
+                        <span>Goodlife Pharmacy • Nyeri</span>
+                        <span>KSh 25,000/month</span>
+                    </div>
+                    <a href="#" class="btn-primary">Apply</a>
+                </div>
+                
+                <div class="job-card volunteer">
+                    <h3>Volunteer - Drug Awareness Campaign</h3>
+                    <div class="job-meta">
+                        <span>Nyeri County Health</span>
+                        <span>Unpaid • Certificate</span>
+                    </div>
+                    <a href="#" class="btn-secondary">Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Career Portal</h3>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#internships">Internships</a></li>
+                        <li><a href="#scholarships">Scholarships</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/opportunities.js"></script>
+</body>
+</html>

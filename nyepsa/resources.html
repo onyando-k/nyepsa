@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Nyeri Pharmacy Association – KMTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png">
+</head>
+<body>
+    <!-- 🔍 Search & Notifications -->
+    <div class="search-notif">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search notes, calculators...">
+        </div>
+        <div class="notification-bell" onclick="toggleNotifications()">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+        </div>
+        <div class="dark-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- 📱 WhatsApp Button -->
+    <a href="https://wa.me/254712345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- 🏠 Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./photos/pharma photo.jpg" alt="NPA-KMTC">
+                <span>Nyeri Pharmacy Association</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="#resources" class="nav-link active">Resources</a></li>
+                <li><a href="opportunities.html" class="nav-link">Opportunities</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎖️ Hero Section -->
+    <section class="hero hero-resources">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Student <span class="gradient-text">Resources</span><br>
+                Hub
+            </h1>
+            <p class="hero-subtitle">
+                Everything you need to excel in pharmacy - notes, tools, past papers, and more
+            </p>
+            <div class="hero-buttons">
+                <a href="#downloads" class="btn-primary btn-large">Download Notes</a>
+                <a href="#tools" class="btn-secondary btn-large">Launch Tools</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/resources-hero.jpg" alt="Study Materials">
+            <div class="resource-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span>Downloads</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">25</span>
+                    <span>Subjects</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📥 Downloads Section -->
+    <section id="downloads" class="downloads-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Study Materials</h2>
+                <p class="section-subtitle">Latest notes, manuals, and past papers</p>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All Materials</button>
+                <button class="tab-btn" data-category="pharmaceutics">Pharmaceutics</button>
+                <button class="tab-btn" data-category="pharmacology">Pharmacology</button>
+                <button class="tab-btn" data-category="hospital">Hospital</button>
+                <button class="tab-btn" data-category="pastpapers">Past Papers</button>
+            </div>
+            
+            <div class="downloads-grid">
+                <div class="download-card" data-category="pharmaceutics">
+                    <div class="download-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="download-info">
+                        <h3>Pharmaceutics Notes (Sem 1)</h3>
+                        <p>Complete notes - suspensions, emulsions, tablets</p>
+                        <div class="download-meta">
+                            <span>📄 45 pages</span>
+                            <span>👥 320 downloads</span>
+                            <span>📅 Updated Oct 2024</span>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <button class="btn-primary" onclick="downloadFile('pharmaceutics-notes')">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="btn-secondary">Preview</button>
+                    </div>
+                </div>
+
+                <div class="download-card" data-category="pharmacology">
+                    <div class="download-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="download-info">
+                        <h3>Pharmacology Sem 2</h3>
+                        <p>Drug classifications, mechanisms, side effects</p>
+                        <div class="download-meta">
+                            <span>📄 62 pages</span>
+                            <span>👥 450 downloads</span>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <button class="btn-primary" onclick="downloadFile('pharmacology')">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="download-card featured" data-category="hospital">
+                    <div class="download-icon featured">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="download-info">
+                        <h3>Hospital Pharmacy Manual</h3>
+                        <p>Complete attachment guide + SOPs + checklists</p>
+                        <div class="download-meta">
+                            <span>📄 120 pages</span>
+                            <span>👥 280 downloads</span>
+                            <span>⭐ Member Exclusive</span>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <button class="btn-login">Login to Download</button>
+                    </div>
+                </div>
+
+                <div class="download-card" data-category="pastpapers">
+                    <div class="download-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="download-info">
+                        <h3>2023 Past Papers Pack</h3>
+                        <p>All modules Sem 1-6 with marking schemes</p>
+                        <div class="download-meta">
+                            <span>📄 89 pages</span>
+                            <span>👥 520 downloads</span>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <button class="btn-primary" onclick="downloadFile('pastpapers')">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="download-card" data-category="pharmaceutics">
+                    <div class="download-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="download-info">
+                        <h3>Pharm analysis - Sem 2</h3>
+                        <p>Practical experiments + viva questions</p>
+                        <div class="download-meta">
+                            <span>📄 35 pages</span>
+                            <span>👥 180 downloads</span>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <button class="btn-primary" onclick="downloadFile('lab-manual')">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧮 Tools & Calculators -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Tools</h2>
+                <p class="section-subtitle">Free calculators for pharmacy students</p>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- BMI Calculator -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-weight-scale-left"></i>
+                        <h3>BMI Calculator</h3>
+                    </div>
+                    <div class="tool-content">
+                        <div class="input-group">
+                            <label>Weight (kg)</label>
+                            <input type="number" id="bmi-weight" placeholder="70">
+                        </div>
+                        <div class="input-group">
+                            <label>Height (cm)</label>
+                            <input type="number" id="bmi-height" placeholder="170">
+                        </div>
+                        <button class="btn-primary" onclick="calculateBMI()">Calculate BMI</button>
+                        <div class="result" id="bmi-result">
+                            <span class="bmi-value">-</span>
+                            <span class="bmi-category">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dosage Calculator -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-syringe"></i>
+                        <h3>Dosage Calculator</h3>
+                    </div>
+                    <div class="tool-content">
+                        <div class="input-group">
+                            <label>Weight (kg)</label>
+                            <input type="number" id="dose-weight" placeholder="70">
+                        </div>
+                        <div class="input-group">
+                            <label>Dose per kg (mg)</label>
+                            <input type="number" id="dose-per-kg" placeholder="10" step="0.1">
+                        </div>
+                        <button class="btn-primary" onclick="calculateDosage()">Calculate</button>
+                        <div class="result" id="dosage-result">-</div>
+                    </div>
+                </div>
+
+                <!-- GPA Calculator -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>GPA Tracker</h3>
+                    </div>
+                    <div class="tool-content">
+                        <div class="input-group">
+                            <label>Current GPA</label>
+                            <input type="number" id="current-gpa" placeholder="3.2" step="0.1" min="0" max="4">
+                        </div>
+                        <div class="input-group">
+                            <label>Target GPA</label>
+                            <input type="number" id="target-gpa" placeholder="3.8" step="0.1" min="0" max="4">
+                        </div>
+                        <button class="btn-primary" onclick="calculateGPATarget()">What I Need</button>
+                        <div class="result" id="gpa-result">-</div>
+                    </div>
+                </div>
+
+                <!-- Unit Converter -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Unit Converter</h3>
+                    </div>
+                    <div class="tool-content">
+                        <select id="unit-from">
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                            <option value="ml">mL</option>
+                            <option value="l">L</option>
+                        </select>
+                        <input type="number" id="unit-value" placeholder="Enter value">
+                        <select id="unit-to">
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                            <option value="ml">mL</option>
+                            <option value="l">L</option>
+                        </select>
+                        <button class="btn-primary" onclick="convertUnits()">Convert</button>
+                        <div class="result" id="unit-result">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📈 Quick Links -->
+    <section class="quick-links-section">
+        <div class="container">
+            <h2 class="section-title">Quick Access</h2>
+            <div class="quick-links-grid">
+                <a href="#" class="quick-link-card">
+                    <i class="fas fa-timetable"></i>
+                    <span>Exam Timetable</span>
+                </a>
+                <a href="#" class="quick-link-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Assignments</span>
+                </a>
+                <a href="#" class="quick-link-card">
+                    <i class="fas fa-book-open"></i>
+                    <span>Textbook List</span>
+                </a>
+                <a href="#" class="quick-link-card">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nyeri Pharmacy Association</h3>
+                    <p>KMTC Nyeri Campus</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#downloads">Downloads</a></li>
+                        <li><a href="#tools">Calculators</a></li>
+                        <li><a href="#">Timetable</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <p>📧 resources@npakmtc.org</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/resources.js"></script>
+</body>
+</html>

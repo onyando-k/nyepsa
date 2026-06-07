@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nyeri Pharmacy Association – KMTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png">
+</head>
+<body>
+    <!-- 🔍 Search & Notifications -->
+    <div class="search-notif">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search contacts, location...">
+        </div>
+        <div class="notification-bell">
+            <i class="fas fa-bell"></i>
+            <span class="badge">2</span>
+        </div>
+        <div class="dark-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- 📱 WhatsApp Button -->
+    <a href="https://wa.me/254712345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- 🏠 Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="NPA-KMTC">
+                <span>Nyeri Pharmacy Association</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="opportunities.html" class="nav-link">Opportunities</a></li>
+                <li><a href="#contact" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn-primary">Join Now</button>
+                <button class="btn-login">Member Login</button>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- 🎖️ Hero Section -->
+    <section class="hero hero-contact">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Get In <span class="gradient-text">Touch</span><br>
+                With Us
+            </h1>
+            <p class="hero-subtitle">
+                We'd love to hear from you. Send a message and we'll respond within 24 hours.
+            </p>
+        </div>
+    </section>
+
+    <!-- 📍 Contact Info -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Information</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Visit Us</h3>
+                        <p>KMTC Nyeri Campus<br>Nyeri Town, Nyeri County<br>Next to County Referral Hospital</p>
+                        <a href="#" class="btn-secondary" onclick="openMap()">Get Directions</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Call Us</h3>
+                        <p><strong>+254 712 345 678</strong><br>Mon-Fri 9AM-5PM</p>
+                        <a href="tel:+254712345678" class="btn-primary">Call Now</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email Us</h3>
+                        <p>info@npakmtc.org<br>Reply within 24hrs</p>
+                        <a href="mailto:info@npakmtc.org" class="btn-primary">Send Email</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>WhatsApp</h3>
+                        <p>Quick queries<br>Office hours only</p>
+                        <a href="https://wa.me/254712345678" class="btn-primary whatsapp-btn">Message Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💬 Contact Form -->
+    <section id="contact" class="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Send a Message</h2>
+                <p class="section-subtitle">Fill out the form or WhatsApp us directly</p>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Phone Number">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <select id="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="membership">Membership Inquiry</option>
+                            <option value="events">Events & Registration</option>
+                            <option value="resources">Resources Access</option>
+                            <option value="internships">Internship Help</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="regno" placeholder="Reg Number (Optional)">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" rows="6" placeholder="Your Message..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary btn-large">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 🗺️ Location Map -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Find Us</h2>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.762!2d36.951!3d-0.419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMCDAsMDAnMjQiUyAzNsKwNTcnMDIuNSJF!5e0!3m2!1sen!2ske!4v1699999999999" 
+                    width="100%" height="500" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

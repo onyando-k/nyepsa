@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyeri Pharmacy Association – KMTC | Excellence in Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+
+    <style>.hero-buttons a{
+    text-decoration: none;
+    display: inline-block;
+  }</style>
+</head>
+<body>
+    <!-- 🔍 Search & Notifications -->
+    <div class="search-notif">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search events, notes, news...">
+        </div>
+        <div class="notification-bell" onclick="toggleNotifications()">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+        </div>
+        <div class="dark-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- 📱 WhatsApp Button -->
+    <a href="https://wa.me/254791887727" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- 🏠 Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./photos/pharma photo.jpg" alt="NPA-KMTC">
+                <span>Nyeri Pharmacy  Association</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="#leadership" class="nav-link">Leadership</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+                <li><a href="#opportunities" class="nav-link">Opportunities</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        
+            
+
+            <div class="nav-buttons">
+
+                <a href="signin.html" class="btn-primary btn-large">
+                    Join Association
+                </a>
+
+                <a href="events.html" class="btn-secondary btn-large">
+                    View Events
+                </a>
+
+             </div>
+
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎖️ Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Nyeri Pharmacy Student Association <br>
+                <span class="gradient-text">– KMTC</span>
+            </h1>
+            <p class="hero-subtitle">
+                Excellence in Pharmaceutical Practice, Leadership & Innovation
+            </p>
+            <div class="hero-buttons">
+               
+                <button class="btn-primary btn-large">Join Association</button>
+                <button class="btn-secondary btn-large">View Events</button>
+                
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/pharmacy-hero.jpg" alt="Pharmacy Lab">
+        </div>
+    </section>
+
+    <!-- 📢 Latest Announcements -->
+    <section class="announcements">
+        <div class="container">
+            <h2 class="section-title">Latest Announcements</h2>
+            <div class="announcement-grid">
+                <div class="announcement-card">
+                    <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>End of Semester Exams</h3>
+                    <p>Exams start 15th Nov 2024. Check timetable in resources.</p>
+                    <span class="date">Nov 10, 2024</span>
+                </div>
+                <div class="announcement-card">
+                    <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Internship Applications Open</h3>
+                    <p>Apply for 2025 hospital attachments now!</p>
+                    <span class="date">Nov 8, 2024</span>
+                </div>
+                <div class="announcement-card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3>General Meeting</h3>
+                    <p>Mandatory meeting this Friday 3PM.</p>
+                    <span class="date">Nov 12, 2024</span>
+                </div>
+            </div>
+            <div class="center-btn">
+                
+                <button class="btn-primary">See All Updates</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📅 Upcoming Events -->
+    <section class="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span>Nov</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Health Camp Outreach</h3>
+                        <p>Nyeri County Referral Hospital</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 9AM - 4PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Hospital</span>
+                        </div>
+                        <button class="btn-primary">Register Now</button>
+                    </div>
+                </div>
+                <!-- More events... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 👥 Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h2 class="section-title">Quick Links</h2>
+            <div class="links-grid">
+                <a href="resources.html" class="link-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Notes & Past Papers</span>
+                </a>
+                <a href="events.html" class="link-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Timetable</span>
+                </a>
+                <a href="resources.html#tool-card" class="link-card">
+                    <i class="fas fa-calculator"></i>
+                    <span>Drug Calculator</span>
+                </a>
+                <a href="#" class="link-card">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Internship Guide</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👨‍⚕️ Leadership Preview -->
+    <section id="leadership" class="leadership-preview">
+        <div class="container">
+            <h2 class="section-title">Our Leadership</h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <img src="./photos/image.jpg" alt="Chairperson">
+                    <h3>Eliani Brian</h3>
+                    <p>Patron</p>
+                </div>
+                <!-- More leaders... -->
+            </div>
+            <div class="center-btn">
+                <a href="leadership.html" class="btn-primary">Meet Full Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💬 Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Members Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p>"The association helped me secure my first internship at KNH!"</p>
+                    <div class="author">
+                        <img src="./photos/another.jpg" alt="">
+                        <span>Jane Doe - Year 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📚 Resources Preview -->
+    <section id="resources" class="resources-preview">
+        <div class="container">
+            <h2 class="section-title">Student Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Pharmaceutics Notes</h3>
+                    <button>Download PDF</button>
+                </div>
+                <!-- More resources... -->
+            </div>
+            <div class="center-btn">
+                <a href="resources.html" class="btn-primary">View All Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nyeri Pharmacy Association</h3>
+                    <p>KMTC Nyeri Campus</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Membership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 info@npakmtc.org</p>
+                    <p>📱 +254 712 345 678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nyeri Pharmacy Association – KMTC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 💬 Chatbot -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-header">
+            <span>Pharmacy Assistant</span>
+            <button onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="message bot">Hello! How can I help you today?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+// 

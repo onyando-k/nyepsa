@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Nyeri Pharmacy Association – KMTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png">
+</head>
+<body>
+    <!-- 🔍 Search & Notifications -->
+    <div class="search-notif">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search events, workshops...">
+        </div>
+        <div class="notification-bell" onclick="toggleNotifications()">
+            <i class="fas fa-bell"></i>
+            <span class="badge">5</span>
+        </div>
+        <div class="dark-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- 📱 WhatsApp Button -->
+    <a href="https://wa.me/254712345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- 🏠 Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./photos/pharma photo.jpg" alt="NPA-KMTC">
+                <span>Nyeri Pharmacy Association</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+                <li><a href="#calendar" class="nav-link active">Events</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="opportunities.html" class="nav-link">Opportunities</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+           
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎖️ Hero Section -->
+    <section class="hero hero-events">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Upcoming <span class="gradient-text">Events</span><br>
+                & Workshops
+            </h1>
+            <p class="hero-subtitle">
+                Join our professional development programs, health camps, and networking events
+            </p>
+            <div class="hero-buttons">
+                <a href="#calendar" class="btn-primary btn-large">View Calendar</a>
+                <a href="#upcoming" class="btn-secondary btn-large">Register Now</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./photos/nat.jpg" alt="Pharmacy Workshop">
+            <div class="event-counter">
+                <div class="counter-item">
+                    <span class="number" data-target="12">0</span>
+                    <span>Events This Semester</span>
+                </div>
+                <div class="counter-item">
+                    <span class="number" data-target="850">0</span>
+                    <span>Registrations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📅 Interactive Calendar -->
+    <section id="calendar" class="calendar-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Event Calendar</h2>
+                <p class="section-subtitle">November 2024</p>
+            </div>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="nav-btn" onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="month-year">November 2024</h3>
+                    <button class="nav-btn" onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Calendar days populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔥 Upcoming Events -->
+    <section id="upcoming" class="upcoming-events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Register before spots fill up!</p>
+            </div>
+            
+            <div class="events-tabs">
+                <button class="tab-btn active" data-tab="all">All Events</button>
+                <button class="tab-btn" data-tab="workshops">Workshops</button>
+                <button class="tab-btn" data-tab="outreach">Outreach</button>
+                <button class="tab-btn" data-tab="networking">Networking</button>
+            </div>
+            
+            <div class="events-container">
+                <!-- Upcoming Events Cards -->
+                <div class="event-card featured-event" data-category="outreach">
+                    <div class="event-image">
+                        <img src="./photos/another.jpg" alt="Health Camp">
+                        <div class="event-type">Outreach</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-header">
+                            <h3>Nyeri County Health Camp</h3>
+                            <div class="event-date">
+                                <span class="day">22</span>
+                                <span>Nov</span>
+                            </div>
+                        </div>
+                        <p>Nyeri County Referral Hospital • Free health screening for 500+ residents</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 9AM - 4PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Nyeri Hospital</span>
+                            <span><i class="fas fa-users"></i> 50 spots left</span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn-primary" onclick="registerEvent('health-camp')">Register Now</button>
+                            <button class="btn-secondary"><i class="fas fa-calendar-plus"></i> Add Calendar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="workshops">
+                    <div class="event-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <div class="event-details">
+                        <h3>Dosage Calculation Workshop</h3>
+                        <div class="event-date-inline">
+                            <i class="fas fa-calendar-day"></i> 25 Nov • 2PM
+                        </div>
+                        <p>Master IV drip rates and pediatric calculations with clinical pharmacists</p>
+                        <div class="event-actions">
+                            <button class="btn-primary" onclick="registerEvent('dosage')">Register (Free)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="networking">
+                    <div class="event-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="event-details">
+                        <h3>Pharma Networking Night</h3>
+                        <div class="event-date-inline">
+                            <i class="fas fa-calendar-day"></i> 28 Nov • 6PM
+                        </div>
+                        <p>Meet hospital directors and pharma companies for internships</p>
+                        <div class="event-actions">
+                            <button class="btn-primary" onclick="registerEvent('networking')">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="workshops">
+                    <div class="event-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="event-details">
+                        <h3>Clinical Attachment Prep</h3>
+                        <div class="event-date-inline">
+                            <i class="fas fa-calendar-day"></i> 5 Dec • 10AM
+                        </div>
+                        <p>Prepare for hospital rotations with real patient case studies</p>
+                        <div class="event-actions">
+                            <button class="btn-primary" onclick="registerEvent('clinical')">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏆 Past Events Gallery -->
+    <section class="past-events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Past Events Gallery</h2>
+                <p class="section-subtitle">Memories from our successful programs</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./photos/image.jpg" alt="White Coat Ceremony">
+                    <div class="gallery-overlay">
+                        <h3>White Coat Ceremony 2024</h3>
+                        <span>50 new members</span>
+                        <a href="#" class="gallery-link">View Album</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./photos/nice.jpg" alt="Blood Donation">
+                    <div class="gallery-overlay">
+                        <h3>Blood Donation Drive</h3>
+                        <span>200 units collected</span>
+                        <a href="#" class="gallery-link">View Album</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./photos/nat.jpg" alt="Graduation">
+                    <div class="gallery-overlay">
+                        <h3>Graduation 2024</h3>
+                        <span>58 graduates</span>
+                        <a href="#" class="gallery-link">View Album</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nyeri Pharmacy Association</h3>
+                    <p>KMTC Nyeri Campus</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Events</h4>
+                    <ul>
+                        <li><a href="#calendar">Calendar</a></li>
+                        <li><a href="#upcoming">Upcoming</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 events@npakmtc.org</p>
+                    <p>📱 +254 712 345 678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nyeri Pharmacy Association – KMTC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
+</body>
+</html>
